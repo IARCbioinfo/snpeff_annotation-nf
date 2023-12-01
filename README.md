@@ -43,11 +43,25 @@ Make sure you have the following dependencies installed before running the pipel
 
 ## Input
 
-The directory with input VCF files specified by the `params.input_folder_with_VCF_files` parameter (by default, `./VCFs/*vcf.gz`)
+| Name      | Default value | Description     |
+|-----------|---------------|-----------------|
+| `--output_foinput_folder_with_VCF_fileslder`    |  `${baseDir}/VCFs/`  | Folder containing `*vcf.gz` files |
+ 
+
+## Parameters
+
+  * #### Optional
+
+| Name      | Default value | Description     |
+|-----------|---------------|-----------------|
+| `--reference_genome`    |  `GRCh37.75`  | Folder containing `*vcf.gz` files |
+| `--dbNSF_path`     |  `${baseDir}/dbNSFP4.1a.txt.gz` | [dbNSFP database](https://pcingola.github.io/SnpEff/ss_dbnsfp/) |
+| `--dbSNP_path`    |  `${baseDir}/dbsnp150.vcf.gz`  |    [dbSNP database](https://ftp.ncbi.nlm.nih.gov/snp/organisms) |
+| `--output_path`    |  `${baseDir}/output` |  Output folder |
 
 ## Output
 
-The final annotated and extracted information will be available in the `output` directory as `full_annotation.txt`.
+The final annotated and extracted information will be available in the output directory as `full_annotation.txt`.
 
 ## Customization
 
