@@ -1,0 +1,11 @@
+name: annotation-pipeline
+channels:
+  - bioconda
+  - defaults
+  - conda-forge
+dependencies:
+  - bcftools=1.9
+  - plink2=2.00a2.3
+  - snpeff=5.0-0
+  - snpsift=5.1
+  - py-bgzip=0.4.0
