@@ -45,7 +45,7 @@ Make sure you have the following dependencies installed before running the pipel
 
 | Name      | Default value | Description     |
 |-----------|---------------|-----------------|
-| `--output_foinput_folder_with_VCF_fileslder`    |  `${baseDir}/VCFs/`  | Folder containing `*vcf.gz` files |
+| `--input_folder_with_VCF_files`    |  `${baseDir}/VCFs/`  | Folder containing `*vcf.gz` files |
  
 
 ## Parameters
@@ -54,7 +54,7 @@ Make sure you have the following dependencies installed before running the pipel
 
 | Name      | Default value | Description     |
 |-----------|---------------|-----------------|
-| `--reference_genome`    |  `GRCh37.75`  | Folder containing `*vcf.gz` files |
+| `--reference_genome`    |  `GRCh37.75`  | Reference genome |
 | `--dbNSF_path`     |  `${baseDir}/dbNSFP4.1a.txt.gz` | [dbNSFP database](https://pcingola.github.io/SnpEff/ss_dbnsfp/) |
 | `--dbSNP_path`    |  `${baseDir}/dbsnp150.vcf.gz`  |    [dbSNP database](https://ftp.ncbi.nlm.nih.gov/snp/organisms) |
 | `--output_path`    |  `${baseDir}/output` |  Output folder |
