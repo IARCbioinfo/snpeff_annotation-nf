@@ -1,7 +1,7 @@
 # snpeff_annotation-nf
-## Nextflow pipeline to annotate VCF files with SnpEff and dbSnp
+## Nextflow DSL2 pipeline to annotate VCF files with SnpEff and dbSnp
 
-This repository contains a Nextflow pipeline for annotating genetic variants in VCF (Variant Call Format) files. The pipeline processes input VCF files, performs various annotations, and generates a comprehensive annotation file.
+This repository contains a Nextflow DSL2 pipeline for annotating genetic variants in VCF files using SnpEff and dbSnp database. The pipeline processes input VCF files, performs various annotations, and generates a comprehensive annotation file.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Make sure you have the following dependencies installed before running the pipel
    cd snpeff_annotation-nf
    ```
 
-2. Adjust the `nextflow.config` file if necessary.
+2. Adjust the `nextflow.config` file if necessary. The package versions are specified in `environment.yml` file.
 
 3. Run the pipeline with:
 

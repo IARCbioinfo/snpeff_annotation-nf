@@ -1,42 +1,10 @@
 #!/usr/bin/env nextflow
 
-params.input_folder_with_VCF_files = "${baseDir}/VCFs/*vcf.gz"
+params.input_folder_with_VCF_files = "${baseDir}/VCFs/"
 params.reference_genome = "GRCh37.75"
 params.dbNSF_path = "${baseDir}/dbNSFP4.1a.txt.gz"
 params.dbSNP_path = "${baseDir}/dbsnp150.vcf.gz"
 params.output_path = "${baseDir}/output"
-
-// process DownloadDbNSF {
-//     output:
-//     file dbNSF "./dbNSFP4.1a.txt.gz"
-//     file dbNSFIndex "./dbNSFP4.1a.txt.gz.tbi"
-
-//     script:
-//     """
-//     if [ ! -f ${params.dbNSF_path} ]; then
-//         echo "dbNSF database not found, downloading..."
-//         wget https://snpeff.blob.core.windows.net/databases/dbs/GRCh37/dbNSFP_4.1a/dbNSFP4.1a.txt.gz
-//         wget https://snpeff.blob.core.windows.net/databases/dbs/GRCh37/dbNSFP_4.1a/dbNSFP4.1a.txt.gz.tbi
-//     fi
-//     """
-// }
-
-// process DownloadDbSNP {
-//     output:
-//     file dbSNP "./dbsnp150.vcf.gz"
-//     file dbSNPIndex "./dbsnp150.vcf.gz.tbi"
-
-//     script:
-//     """
-//     if [ ! -f ${params.dbSNP_path} ]; then
-//         echo "dbSNP database not found, downloading..."
-//         wget https://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606_b150_GRCh37p13/VCF/00-All.vcf.gz
-//         wget https://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606_b150_GRCh37p13/VCF/00-All.vcf.gz.tbi
-//         mv 00-All.vcf.gz dbsnp150.vcf.gz
-//         mv 00-All.vcf.gz.tbi dbsnp150.vcf.gz.tbi
-//     fi
-//     """
-// }
 
 process FilterInputFiles {
     tag "Sample ${sample}"
@@ -195,10 +163,8 @@ process ExtractFields {
 }
 
 workflow {
-    // DownloadDbNSF //TODO - download databases if not available
-    // DownloadDbSNP
     // Grab input VCF files
-    file_channel = Channel.fromPath( params.input_folder_with_VCF_files, checkIfExists: true )
+    file_channel = Channel.fromPath( params.input_folder_with_VCF_files + '/*vcf.gz', checkIfExists: true )
     // Launch the pipeline
     FilterInputFiles(file_channel) \
         | AnnotateWithRSID \
